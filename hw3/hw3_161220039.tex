@@ -1,0 +1,219 @@
+%!TEX program = xelatex
+\documentclass[a4papers]{ctexart}
+%数学符号
+\usepackage{amssymb}
+\usepackage{amsmath}
+%表格
+\usepackage{graphicx,floatrow}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{makecell}
+%页边距
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+%首行缩进两字符 利用\indent \noindent进行控制
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\setromanfont{Songti SC}
+%\setromanfont{Heiti SC}
+
+\title{Probability and Mathmatical Statistics}
+\author{冯诗伟161220039}
+\date{}
+\begin{document}
+\maketitle
+\section{习题2.1}
+将3个小球随即放入4个盒子中，设盒子中求的最多个数位X，求X的分布律。\\
+\noindent 解：
+\indent 设盒子中求的最多个数位X，X是一个随机变量，X的取值范围为1，2，3。\\
+\[ P(X=1) = \frac{A_4^3}{4^3}=\frac{24}{64}=\frac{3}{8} \]
+\[ P(X=2) =\frac{C_3^2 A_4^2}{4^3} = \frac{36}{64}=\frac{9}{16} \]
+\[P(X=3) = \frac{C_4^1}{4^3} = \frac{4}{64}=\frac{1}{16} \]
+所以X的分布律为：\\
+\begin{center}
+\begin{tabular}{c|ccc}
+X & 1 & 2 & 3 \\
+\hline
+P & 3/8 & 9/16 & 1/16
+\end{tabular}
+\end{center}
+
+\section{习题2.3}
+问C取何值时一下数列称为概率分布律：\\
+(1) $p_k$ = C$\left( \dfrac{2}{3} \right)^2$, $k$ = 1,2,3；\\
+(2) $p_k$ = C$\dfrac{\lambda^k}{k!}$, $k$ = 1,2,3,…… \\
+\noindent 解：\\
+(1) 由公式$\sum_{k=1}^3 C\left(\dfrac{2}{3}\right)^k = 1$，
+得$C\times\dfrac{38}{27} = 1$，所以$C = \dfrac{27}{38}。$\\
+(2) 由公式$\sum_{k=1}^\infty C\dfrac{\lambda^k}{k!} = 1$，
+得$C\sum_{k=1}^\infty \dfrac{\lambda^k}{k!} = C\*e^\lambda = 1$，
+所以$C = \dfrac{1}{e^\lambda}$。\\
+
+\section{习题2.19}
+设离散型随机变量X的分布律为：\\
+\begin{center}
+\begin{tabular}{c|ccccc}
+X & -2 & -1/2 & 0 & 1/2 & 4 \\
+\hline
+P & 1/8 & 1/4 & 1/8 & 1/6 & 1/3
+\end{tabular}
+\end{center}
+求下列随机变量的分布律：(1) Y = 2X； (2) Y = $X^2$； (3) $Y = {\rm \sin}\left(\dfrac{\pi}{2}X\right)$。\\
+解：(1)
+\begin{center}
+\begin{tabular}{c|ccccc}
+Y & -4 & -1 & 0 & 1 & 8 \\
+\hline
+P & 1/8 & 1/4 & 1/8 & 1/6 & 1/3
+\end{tabular}
+\end{center}
+(2)
+\begin{center}
+\begin{tabular}{c|cccc}
+Y & 0 & 1/4 & 4 & 16 \\
+\hline
+P & 1/8 & 5/12 & 1/8 & 1/3 
+\end{tabular}
+\end{center}
+(3)
+X和Y的取值关系如下表，Y只有三种取值$-\dfrac{\sqrt{2}}{2}$，$0$，$\dfrac{\sqrt{2}}{2}$。\\
+\begin{center}
+\begin{tabular}{c|ccccc}
+X & -2 & -1/2 & 0 & 1/2 & 4 \\
+\hline
+Y & 0 & $-\dfrac{\sqrt{2}}{2}$ & 0 & $\dfrac{\sqrt{2}}{2}$ & 0
+\end{tabular}
+\end{center}
+所以Y的分布律为：\\
+\begin{center}
+\begin{tabular}{c|ccccc}
+Y & $-\dfrac{\sqrt{2}}{2}$ & 0 & $\dfrac{\sqrt{2}}{2}$ \\
+\hline
+P & 1/4 & 7/12 & 1/6 
+\end{tabular}
+\end{center}
+
+\section{习题3.3}
+设随机变量X和Y相互独立，且X和Y的概率分布为\\
+
+\begin{minipage}{0.5\textwidth}  %两个表格并排
+\begin{tabular}{c|cccc}
+\hline
+X & 0 & 1 & 2 & 3 \\
+\hline
+P & 1/2 & 1/4 & 1/8 & 1/8 \\
+\hline
+\end{tabular}
+\end{minipage}
+\hfil
+\begin{minipage}{0.5\textwidth}
+\begin{tabular}{c|ccc}
+\hline
+Y & -1 & 0 & 1 \\
+\hline
+P & 1/4 & 1/2 & 1/4 \\
+\hline
+\end{tabular} 
+\end{minipage}
+\\[2mm]                 %可加入任意间距的空白行
+\indent 请计算概率$P(X+Y=2)$。
+
+\noindent 解：
+\begin{alignat*}{2}        % alignat* 使得公式没有序号
+P(X+Y=2) &= P(X=1,Y=1)+P(X=2,Y=0)+P(X=3,Y=-1)\\
+&= P(X=1)P(Y=1)+P(X=2)P(Y=0)+P(X=3)P(Y=-1)\\
+&= \dfrac{1}{4}\times\dfrac{1}{4}+ \dfrac{1}{8}\times\dfrac{1}{2}+ \dfrac{1}{8}\times\dfrac{1}{4}\\
+&= \dfrac{1}{16}+\dfrac{1}{16}+\dfrac{1}{32}\\
+&= \dfrac{5}{32}
+\end{alignat*}
+
+\section{蓄水池抽样}
+有一系列的数据流经某系统。我们希望对该数据流进行采样，希望能都从该数据流中
+采样一个数据，使得该数据等可能地为所有已经流经该系统的数据中的一个。假设我们不知道
+数据流中数据的个数，同时也不保存已经流经系统的数据。\\
+\indent 考虑以下算法：当第一个数据经过时，我们将其存放在内存中。
+当第k个数据经过时，我们以$\dfrac{1}{k}$的概率用其替代内存中的数据。\\
+(1)证明该算法的有效性。\\ 
+(2)如果替代的概率为$\dfrac{1}{2}$，求内存中存放的是哪一个数据的分布。\\
+\noindent 解：\\
+(1)设事件$A_i$表示第i个数据替代了内存中的数据，事件$B_i$表示第i个数据最终占据内存，
+设共流经n个数据，则
+\begin{alignat*}{2}
+    P(B_i)
+    &=P(A_i \overline{A_{i+1}}\, \overline{A_{i+2}}\cdots\overline{A_n})\\
+    &=P(A_i)P(\overline{A_{i+1}})P(\overline{A_{i+1}}\cdots P(\overline{A_n})\\
+    &=\dfrac{1}{i} \dfrac{i}{i+1} \dfrac{i+1}{i+2}…\dfrac{n-1}{n}\\
+    &=\dfrac{1}{n}
+\end{alignat*}
+所以第i个数据最终占据内存的概率和它到来的次序没用关系，得证。\\
+(2)设事件$A_i$表示第i个数据替代了内存中的数据，事件$B_i$表示第i个数据最终占据内存，
+设共流经n个数据，则$P(A_i)=\dfrac{1}{2}$。\\
+\begin{alignat*}{2}
+P(B_i)
+&=P(A_i \overline{A_{i+1}}\, \overline{A_{i+2}}\cdots\overline{A_n})\\
+&=\begin{matrix}\underbrace{\dfrac{1}{2} \dfrac{1}{2} \dfrac{1}{2} \cdots \dfrac{1}{2}}\\ n-i+1个 \end{matrix}\\
+&=\dfrac{1}{2^{n-i+1}}
+\end{alignat*}
+且满足\[
+    P(B_i)\ge 0，\,\sum_{i=1}^\infty P(B_i)
+    =\lim_{n \to \infty}\sum_{i=1}^n \dfrac{1}{2^{n-i+1}} 
+    =\lim_{n \to \infty}\sum_{i=1}^n \dfrac{1}{2^i} 
+    = 1
+\]
+\section{补充3 }
+考虑取值为正整数的随机变量X，其分布律为$P(X=i)=\dfrac{6}{\pi}i^{-2}$
+(注意$\sum_{i=1}^\infty i^{-2}=\dfrac{\pi^2}{6}$)。分析X的期望值。\\
+\noindent 解：\\
+\[E[X]=\sum_{i=1}^\infty iP(X=i) = \sum_{i=1}^\infty \dfrac{6}{\pi}i^{-1}\]
+\indent 其中级数$\sum_{i=1}^\infty\dfrac{6}{\pi}i^{-1}$发散，所以X的期望不存在。
+
+\section{n人牵手}
+考虑$n$个人玩一个$n$轮的游戏。在第$i$($i=1,2,…,n$)轮游戏中，从剩下的
+$2n-2(i-1)$只手中随机挑选2只手进行牵手。求形成环的个数的期望值。(某人左右手牵在一起也算形成一个环)。\\
+\noindent 解：\\
+\indent 每轮游戏去掉两只手，即去掉“一个人”：若这两只手是同一个人的，则成了一个环，且这个人再也不参与之后的游戏，相当于去掉了一个人；
+若这两只手不是同一个人的，则没有成环，但这两个人相当于合并成了一个人，也算是去掉了一个人。\\
+\indent 构造指示变量$A_i$，
+\[ A_i = \begin{cases}
+    0, & \mbox{if 第}i\mbox{轮没有成环}\\
+    1, & \mbox{if 第}i\mbox{轮有成环}\\
+\end{cases} \]
+\indent 设最终形成了X个环，
+\begin{alignat*}{2}
+     E[X] &= \sum_{i=1}^n P(A_i=1)\\
+     &= \sum_{i=1}^n \dfrac{n-i+1}{C_{2n-2(i-1)}^2}\\
+     &= \sum_{i=1}^n \dfrac{1}{2n-2i+1}
+\end{alignat*}
+
+\section{Jensen不等式}
+设$f$为下凸函数，即对于任意$x_1,x_2$且$0\le\lambda\le 1$，
+\[f(\lambda x_1 + (1-\lambda)x_2)\le\lambda f(x_1)+(1-\lambda)f(x_2)\]
+\indent 假设X为只有有限个取值的离散型随机变量，求证
+\[E[f(X)]\ge f(E[X])\]
+\indent (注：该不等式对连续型随机变量同样适用)\\
+\noindent 解：\\
+首先证明对于下凸函数$f$，任意的$x_1,x_2\cdots x_n,p_1,p_2\cdots,p_n，0\le p_i \le 1，\sum_{i=1}^n p_i=1$，有\\
+\[ f(\sum_{i=1}^n p_i x_i)\le \sum_{i=1}^n p_i f(x_i)  \]
+使用数学归纳法，对$n$进行归纳。\\
+(1)当$n=2$时，由题目条件已知成立。\\
+(2)假设当$n \le k$时该不等式均成立，当$n=k+1$时，\\
+\begin{alignat*}{2}
+f(\sum_{i=1}^{k+1} p_i x_i) 
+&= f(p_{i+1} x_{i+1} + \sum_{i=1}^k p_i x_i)\\
+&= f\left( p_{k+1} x_{k+1} + (1-p_{k+1})\dfrac{\sum_{i=1}^k p_i x_i}{1-p_{k+1}} \right)\\
+&\le p_{k+1} f(x_{k+1}) + (1-p_{k+1}) f\left(\dfrac{\sum_{i=1}^k p_i x_i}{1-p_{k+1}}\right) \cdots \cdots 由题目条件\\
+&\le p_{k+1} f(x_{k+1}) + (1-p_{k+1}) \dfrac{\sum_{i=1}^k p_i f(x_i)}{1-p_{k+1}}\quad\cdots \cdots 由归纳假设\\
+&= \sum_{i=1}^{k+1} p_i f(x_i) 
+\end{alignat*}
+综合(1)(2),对于下凸函数$f$，任意的$x_1,x_2\cdots x_n,p_1,p_2\cdots,p_n，0\le p_i \le 1，\sum_{i=1}^n p_i=1$，有\\
+\[ f(\sum_{i=1}^n p_i x_i)\le \sum_{i=1}^n p_i f(x_i)  \]\\
+设离散型随机变量X的取值范围是$x_1,x_2\cdots x_n$，分布律是$P(x_i)=p_i，其中0\le p_i \le 1，\sum_{i=1}^n p_i=1$。则有\\
+\begin{alignat*}{2}
+    f(E[X])&= f(\sum_{i=1}^n p_i x_i)\\
+           &\le \sum_{i=1}^n p_i f(x_i) \\
+           &= E[f(x)]\\
+\end{alignat*}
+得证。
+\end{document}

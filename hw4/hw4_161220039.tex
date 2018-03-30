@@ -1,0 +1,129 @@
+%!TEX program = xelatex
+\documentclass[a4papers]{ctexart}
+%数学符号
+\usepackage{amssymb}
+\usepackage{amsmath}
+%表格
+\usepackage{graphicx,floatrow}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{makecell}
+%页边距
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+%首行缩进两字符 利用\indent \noindent进行控制
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\setromanfont{Songti SC}
+%\setromanfont{Heiti SC}
+
+\title{Probability and Mathmatical Statistics \\Homework 4}
+\author{冯诗伟161220039}
+\date{}
+\begin{document}
+\maketitle
+\section{1.36}
+某单位有100台电话分机，每台分机有5\%的时间使用外线通话，若每台分机使用外线是独立的，
+问该单位要设立多少条外线，才能以90\%以上的概率保证各分机使用外线不被占线。\\
+解：\\
+设同时有$X$台电话分机要使用外线。$X$可近似看作服从$\lambda=100\times 0.5\%=5$的泊松分布。\\
+设该单位至少设立n条外线，由
+\[
+    \arg \min_{n \in \mathbb{N}}\left[P(X\le n)\ge 90\% \right]=8
+\]
+有该单位要设立8条外线，才能以90\%以上的概率保证各分机使用外线不被占线。
+\section{2.7}
+设有甲乙两种颜色和味觉都极其相似的名酒各4杯，若从中挑4杯能将甲酒全部挑出来，
+算是试验成功一次。\\
+(1)某人随机地去猜，问他实验成功一次的概率是多少？\\
+(2)某人声称他通过品尝可区分这两种酒，他独立试验10次成功3次。利用小概率事件原理推断，
+他是猜对的，还是确有区分能力。\\
+解：\\
+(1)设事件X为实验成功一次。
+\[P(X)=\dfrac{1}{\dbinom{8}{4}} = \dfrac{1}{70}\]
+(2)设事件Y为独立试验10次成功3次。
+\[P(Y)=\dbinom{10}{3}(P(X))^3(1-P(X))^7=0.0316\%\]
+事件Y的发生概率非常小，他应该确有分辨能力。\\
+
+\section{2.8}
+已知每天到达某港口的油船数X服从参数为2.5的泊松分布，而港口的服务能力最多只有3只船，
+如果一天中到达港口的游船多于3只，则超过3只的油船必须转港。\\
+(1)求一天中必须有油船转港的概率。\\
+(2)求一天中最大可能到达港口的油船数及其概率。\\
+(3)问服务能力提高到多少只油船的时候，能使到达油船以90\%的概率得到服务。\\
+解：\\
+(1)\[P(X\ge4)=1-P(X\le3)=1-0.0821-0.2052-0.2565-0.2138=0.2424\]
+(2)设一天中最大可能到达港口的油船数为$i$，则有\\
+\[\begin{cases}
+    P(X=i)\ge P(X=i+1)\\
+    P(X=i)\ge P(X=i-1)\\
+\end{cases}\]
+解得\[1.5\le i \le 2.5\]
+则一天中最大可能到达港口的油船数为$2$，其概率为$P(X=2)=0.2052$。\\
+(3)即求$\arg\min_{n\in \mathbb{N}}\left[P(X \le n)\le 90\%\right]$。\\
+求得$n=5$。
+
+\section{负二项分布}
+解：独立抛硬币$r$次，第$r$次确定为正面向上，前$r-1$次中有$k$次正面向上，
+$r-k$次为反面向上。\\
+\begin{alignat*}{2}
+P(X=r) &=p \dbinom{r-1}{k-1} p^{k-1} (1-p)^{r-k} \\
+&= p^k \dbinom{r-1}{k-1}  (1-p)^{r-k}，r=k,k+1,\cdots\\
+\end{alignat*}
+其中，
+\[P(X=r)\ge 0， \, r=k,k+1,\cdots\]
+\begin{alignat*}{2}
+\sum_{r=k}^\infty P(X=r) 
+&= \sum_{r=k}^\infty p^k \dbinom{r-1}{k-1}  (1-p)^{r-k} \cdots\cdots 设t=r-k\\
+&= p^k \sum_{t=0}^\infty  \dbinom{k+t-1}{t}  (1-p)^{t} \\
+&= p^k \sum_{t=0}^\infty  \dfrac{(k+t-1)(k+t-2)\cdots(k)}{t!} (1-p)^t\\
+&= p^k \sum_{t=0}^\infty (-1)^t \dfrac{(-k)(-k-1)\cdots(-k-(t-1))}{t!} (1-p)^t\\ 
+&= p^k \sum_{t=0}^\infty \dbinom{t}{-k} (p-1)^t · 1^{-k-t}\\
+&= p^k p^{-k}\\
+&= 1
+\end{alignat*}    
+\section{补充3}
+$假设X和Y相互独立，且分别服从参数为p和q的几何分布，求下列的值：$\\
+(1)$P(X=Y)$\\
+(2)$P(min(X, Y)=k)。想一想min(X,Y)的物理含义。$\\
+解：\\
+(1)
+\begin{alignat*}{2}
+P(X=Y) &= \sum_{k=1}^\infty P(X=k,Y=k)\\
+&= \sum_{k=1}^\infty P(X=k)P(Y=k)\\
+&= \sum_{k=1}^\infty (1-p)^{k-1}p(1-q)^{k-1}q\\
+&= pq\sum_{k=1}^\infty [(1-p)(1-q)]^{k-1}\\
+&= \dfrac{pq}{p+q-pq}\\
+\end{alignat*}
+(2)
+$min(X,Y)$是指直到$X$和$Y$中任意一个成立所进行的实验次数。
+令$W$表示直到$X$和$Y$中任意一个成立所进行的实验次数，
+则有$W～G(1-(1-p)(1-q))，即W～G(p+q-pq)$。则有
+\begin{alignat*}{2}
+P(min(X, Y)=k) &= P(W)\\
+&= \sum_{k=1}^\infty [1-(p+q-pq)]^{k-1}(p+q-pq)\\
+&= (1-p)^{k-1}(1-q)^{k-1}(p+q-pq)\\
+\end{alignat*}
+\section{非匀质硬币}
+抛一枚非匀质硬币，其正面向上的概率计为$p$，但是数值未知。请给出一种方法，
+能够利用这枚硬币生成无偏的随机比特(即是0或是1的概率各是0.5)，并保证所需抛硬币的
+次数的期望不超过$\dfrac{1}{[p(1-p)]}$。\\
+解：\\
+方法：\\
+\indent 连续抛两次硬币，若是“正反”则生成1，若是“反正”则生成0，若是“正正”或“反反”则重抛一次。\\
+说明：\\
+\indent 连续抛两次硬币，若是“正反”则记为事件$X_1$，若是“反正”则记为事件$X_2$，
+若是“正正”则记为事件$X_3$，若是“反反”则记为事件$X_4$。\\
+\indent 因为$P(X_1)=P(X_2)=p(1-p)$，所以生成的是无偏的随机比特。\\
+\indent 记事件Y为成功生成无偏的随机比特。
+\[P(Y)=P(X_1)+P(X_2)=2p(1-p)\]
+\[
+P(\overline Y)=P(X_3)+P(X_4)=p^2+(1-p)^2=2p^2-2p+1
+\]
+\indent 所以有
+\[E(Y)=\dfrac{1}{2p(1-p)}\]
+\indent 因为事件Y的每一次试验都需要抛两次硬币，所以题目中为生成无偏的随机比特保证所需抛硬币的
+次数的期望为$2E(Y)=\dfrac{1}{p(1-p)}$。
+\end{document}
