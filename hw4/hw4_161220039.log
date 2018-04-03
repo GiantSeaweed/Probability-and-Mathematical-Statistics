@@ -1,13 +1,13 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.10)  30 MAR 2018 10:35
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.10)  4 APR 2018 01:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw4/hw4_161220039"
+**"/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probabilit
+y and Mathematical Statistics/hw4/hw4_161220039"
 
-
-(/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw4/hw4_161220039.te
-x
+(/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probability 
+and Mathematical Statistics/hw4/hw4_161220039.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/ctexart.cls
@@ -1559,11 +1559,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  22222 strings out of 493005
- 450341 string characters out of 6134596
+ 450485 string characters out of 6134596
  473273 words of memory out of 5000000
  25983 multiletter control sequences out of 15000+600000
  11422 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,14n,67p,10499b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,14n,67p,10547b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on hw4_161220039.pdf (4 pages).
