@@ -1,13 +1,13 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.10)  27 MAR 2018 12:15
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.10)  5 APR 2018 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw3/hw3_161220039"
+**"/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probabilit
+y and Mathematical Statistics/hw3/hw3_161220039"
 
-
-(/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw3/hw3_161220039.te
-x
+(/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probability 
+and Mathematical Statistics/hw3/hw3_161220039.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/ctexart.cls
@@ -1568,8 +1568,9 @@ Overfull \hbox (22.83528pt too wide) in paragraph at lines 101--122
 []$[]$  $[]$ 
  []
 
-/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw3/hw3_161220039.tex
-:133: Text line contains an invalid character.
+/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probability a
+nd Mathematical Statistics/hw3/hw3_161220039.tex:133: Text line contains an inv
+alid character.
 l.133 ^^H
          有一系列的数据流经某系统。我们希望对该数据流�...
 A funny symbol that I can't read has just been input.
@@ -1598,8 +1599,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--198
 
  []
 
-/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw3/hw3_161220039.tex
-:201: Text line contains an invalid character.
+/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probability a
+nd Mathematical Statistics/hw3/hw3_161220039.tex:201: Text line contains an inv
+alid character.
 l.201 ...��$n \le k$时该不等式均成立，^^H
                                                   当$n=k+1$时，\\
 A funny symbol that I can't read has just been input.
@@ -1616,15 +1618,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 209--211
  []
 
 [4]
-/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw3/hw3_161220039.tex
-:212: Text line contains an invalid character.
+/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probability a
+nd Mathematical Statistics/hw3/hw3_161220039.tex:212: Text line contains an inv
+alid character.
 l.212 ^^H
          设离散型^^H随机变量X的取值范围是$x_1,x_2\cdots x_n$�...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
-/Users/fengshiwei/001Life in NJU/001Learning/大二下/概率论与数理统计/hw3/hw3_161220039.tex
-:212: Text line contains an invalid character.
+/Users/fengshiwei/001Life in NJU/001Learning/Sophomore 2018Spring/Probability a
+nd Mathematical Statistics/hw3/hw3_161220039.tex:212: Text line contains an inv
+alid character.
 l.212 ^^H设离散型^^H
                         随机变量X的取值范围是$x_1,x_2\cdots x_n$�...
 A funny symbol that I can't read has just been input.
@@ -1642,11 +1646,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  22238 strings out of 493005
- 451496 string characters out of 6134596
+ 451640 string characters out of 6134596
  475273 words of memory out of 5000000
  26001 multiletter control sequences out of 15000+600000
  11422 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,21n,67p,10499b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,21n,67p,10547b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on hw3_161220039.pdf (5 pages).
