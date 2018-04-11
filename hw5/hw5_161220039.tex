@@ -1,0 +1,297 @@
+%!TEX program = xelatex
+\documentclass[a4papers]{ctexart}
+%数学符号
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+%表格
+\usepackage{graphicx,floatrow}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{makecell}
+%页边距
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+%首行缩进两字符 利用\indent \noindent进行控制
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\setromanfont{Songti SC}
+%\setromanfont{Heiti SC}
+
+\title{Probability and Mathmatical Statistics \\Homework 5}
+\author{冯诗伟161220039}
+\date{}
+\begin{document}
+\maketitle
+\section{4.4}
+已知随机变量$X$和$Y$独立同分布，且X的概率分布为$P(X=1)=1-P(X=2)=\dfrac{2}{3}$。
+记$U=max(X,Y),V=min(X,Y)$，求：\\
+\indent (1)$(U,V)$的概率分布；(2)$E(U)$和$E(V)$；(3)$cov(U,V)$。\\
+解：\\
+（1） $P(X=1)=P(Y=1)=\dfrac{2}{3}，P(X=2)=P(Y=2)=\dfrac{1}{3}$。\\
+$(U,V)的取值范围为(1,1),(2,1),(2,2)。$\\
+$P((U,V)=(1,1))=P(X=1,Y=1)=P(X=1)P(Y=1)=\dfrac{4}{9}，$\\
+$P((U,V)=(2,1))=P(X=2,Y=1)+P(X=1,Y=2)=P(X=2)P(Y=1)+P(X=1)P(Y=2)=\dfrac{4}{9}，$\\
+$P((U,V)=(2,2))=P(X=2,Y=2)=P(X=2)P(Y=2)=\dfrac{1}{9}$，\\
+所以$(U,V)$的分布律如下：\\
+\begin{center}
+\begin{tabular}{c|ccc}
+\hline
+$(U,V)$ & $(1,1)$ & $(2,1)$ & $(2,2)$ \\
+\hline
+$P$ & $\frac{4}{9}$& $\frac{4}{9}$ & $\frac{1}{9}$\\
+\hline
+\end{tabular}
+\end{center}
+（2）\,$U$的$V$分布律如下：\\[2mm]
+\begin{minipage}{0.4\textwidth}  %两个表格并排
+\begin{tabular}{c|cc}
+\hline
+$U$ &  1 & 2  \\
+\hline
+$P$ & $\frac{4}{9}$ & $\frac{5}{9}$ \\
+\hline
+\end{tabular}
+\end{minipage}
+\hfil
+\begin{minipage}{0.8\textwidth}
+\begin{tabular}{c|cc}
+\hline
+$V$ & 1 & 2  \\
+\hline
+$P$ & $\frac{8}{9}$ & $\frac{1}{9}$ \\
+\hline
+\end{tabular} 
+\end{minipage}
+\\[2mm]
+$E(X)=1\times\dfrac{4}{9}+2\times\dfrac{5}{9}=\dfrac{14}{9}$，
+$E(Y)=1\times\dfrac{8}{9}+2\times\dfrac{1}{9}=\dfrac{10}{9}$。\\[2mm]
+（3）
+\begin{center}
+\begin{tabular}{c|ccc}
+\hline
+$UV$ &  1 & 2 & 4  \\
+\hline
+$P$ & $\frac{4}{9}$ & $\frac{4}{9}$& $\frac{1}{9}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{alignat*}{2}
+ cov(U,V)&=E(UV)-E(U)E(V)\\
+ &=\sum_{i=1,2,4}iP(UV=i)-E(U)E(V)\\
+ &=\dfrac{16}{9}-\dfrac{14}{9}\times\dfrac{10}{9}\\
+ &=\dfrac{4}{81}
+\end{alignat*}
+\section{4.19}
+设$X$和$Y$独立，且都服从泊松分布，已知$E(X)=1,E(Y)=2$，请计算$E((X+Y)^2)$。\\
+解：\\
+由题意，$X～P(1)，Y～P(2)$。又因为$E(X^2)=1^2+1，E(Y^2)=2^2+2$，有
+\begin{alignat*}{2}
+    E((X+Y)^2)&=E(X^2+Y^2+2XY)\\
+    &=E(X^2)+E(Y^2)+2E(XY)\\
+    &=E(X^2)+E(Y^2)+2E(X)E(Y)\\
+    &=(1^2+1)+(2^2+2)+2\times1\times2\\
+    &=12\\
+\end{alignat*}
+\section{4.23}
+    设$f(x)，0\le x < +\infty$，是一个单调非减函数，且$f(x)>0$。对于随机变量$X$，
+若$E[f(x)]<\infty$，则证明对于任意的$x>0，P(|X|\ge x)\le \dfrac{1}{f(x)} E[f(|X|)]$。
+\begin{proof}
+由于$f(x)$是一个单调非减函数，所以\[P(|X|\ge x)=P(f(|X|)\ge f(x))\]
+由马尔可夫不等式，有\[P(f(|X|)\ge f(x))\le \dfrac{1}{f(x)} E[f(|X|)]\]
+综上对于任意的$x>0，P(|X|\ge x)\le \dfrac{1}{f(x)} E[f(|X|)]$。
+\end{proof} %proof环境可以有证毕符号！！
+
+\section{补充2}
+假设$X$和$Y$独立，$X～G(p)，Y～G(q)$，求下列值。\\
+（1）$E[max(X,Y)].$(至少用两种方法)\\
+（2）$E[X|X\le Y].$\\
+解：\\
+（1）
+（$a$）方法一：按照定义
+\begin{align*}
+    P(max(X,Y)=k)&=P(X=k,Y\le k)+P(Y=k,X< k)\quad（防止X=Y被重复计算）\\
+    &=P(X=k)P(Y\le k)+P(Y=k)P(X < k)\\
+    &=P(X=k)\left(1-P(Y > k)\right)+P(Y=k)\left(1-P(X\ge k)\right)\\
+    &=(1-p)^{k-1}p(1-(1-q)^k)+(1-q)^{k-1}q(1-(1-p)^{k-1})\\
+    &=(1-p)^{k-1}p+(1-q)^{k-1}q-(p+q-pq)(1-p)^{k-1}(1-q)^{k-1}
+\end{align*}
+
+\begin{align*}
+    E[max(X,Y)]&=\sum_{k=1}^\infty kP(max(X,Y)=k)\\
+    &=\sum_{k=1}^\infty k(1-p)^{k-1}p +\sum_{k=1}^\infty k(1-q)^{k-1}q-\sum_{k=1}^\infty k(p+q-pq)(1-p)^{k-1}(1-q)^{k-1}\\
+    &=\dfrac{1}{p}+\dfrac{1}{q}-\dfrac{1}{p+q-pq}
+\end{align*}
+（$b$）方法二：$X,Y$中总有一个等于$max{X,Y}$，另一个等于$min{X,Y}$。
+作业4中曾求得$min(X,Y)～G(p+q-pq)$，所以$E(min(X,Y))=\dfrac{1}{p+q-pq}$。
+\begin{align*}
+    E(max(X,Y))&=E(X)+E(Y)-E(min(X,Y))\\
+    &=\dfrac{1}{p}+\dfrac{1}{q}-\dfrac{1}{p+q-pq}
+\end{align*}
+（2）
+\begin{align*}
+    E[X|X\le Y]&=\sum_{k=1}^\infty kP(X=k|X\le Y)\\
+    &=\sum_{k=1}^\infty k\dfrac{P(X=k,X\le Y)}{P(X\le Y)}\\
+\end{align*}
+\indent 其中
+\begin{align*}
+    P(X=k,X\le Y)=(1-p)^{k-1}p(1-q)^{k-1}
+\end{align*}
+\begin{align*}
+    P(X\le Y)&=\sum_{i=1}^\infty P(X=i,Y\ge i)\\
+    &=\sum_{i=1}^\infty (1-p)^{i-1}p(1-q)^{i-1}\\
+    &=\dfrac{p}{p+q-pq}
+\end{align*}
+\indent 所以
+\begin{align*}
+    E[X|X\le Y]&=\sum_{k=1}^\infty k\dfrac{P(X=k,X\le Y)}{P(X\le Y)}\\
+    &=(p+q-pq)\sum_{k=1}^\infty (1-p)^{k-1}(1-q)^{k-1}\\
+    &=\dfrac{1}{p+q-pq}
+\end{align*}
+\section{补充3}
+设$\pi$为$[n]={1,2,3,\cdots,n}$的一个置换。若$\pi(i)=i$，则称$i$为$\pi$的一个不动点。
+从$n!$个置换中任取一个置换，求不动点个数的方差。\\
+解：\\
+定义随机变量$X$表示不动点的个数，同时定义指示变量$X_i(i=1,2,3,\cdots,n)$，
+\[ X_i=\begin{cases}
+    1，& \pi(i)=i\\
+    0，& \pi(i)\ne i\\
+\end{cases}\]
+$P(X_i=1)=\dfrac{1}{n}$，则\\
+\begin{alignat*}{2}
+    E(X)&=E(\sum_{i=1}^n X_i)\\
+    &=\sum_{i=1}^nE(X_i)\\
+    &=1
+\end{alignat*}
+
+\begin{align*}
+    E(X^2)&=E((\sum_{i=1}^n X_i)^2)\\
+    &=E\left(\sum_{i=1}^n X_i^2 + 2\sum_{1\le i<j\le n} X_i X_j\right)\\
+    &=\sum_{i=1}^n E(X_i^2)+2\sum_{1\le i<j\le n}E(X_i X_j)\\
+    &=\sum_{i=1}^n P(X_i=1)+2\sum_{1\le i<j\le n}P(X_i=1,X_j=1)\\
+    &=n\times\dfrac{1}{n}+2\times\dfrac{n(n-1)}{2}\times\dfrac{(n-2)!}{n!}\\
+    &=2
+\end{align*}
+得
+\[D(X)=E(X^2)-[E(X)]^2=2-1=1\]
+\section{补充4}
+不停地抛一枚均匀的骰子，直至出现一双连续的6。求所抛次数的期望值。\\
+解：\\
+\indent 定义X为出现一双连续的6所抛次数，同时定义两个随机变量Y、Z。\\
+\[ Y=\begin{cases}
+    1，& 第一次是6\\
+    0，& 第一次不是6\\
+\end{cases}\]
+\[ Z=\begin{cases}
+    1，& 第二次是6\\
+    0，& 第二次不是6
+\end{cases}\]
+\begin{align*}
+    E(X)&=E(X|Y=1)P(Y=1)+E(X|Y=0)P(Y=0)\\
+    &= \left[ E(X|Y=1,Z=1)P(Z=1)+ E(X|Y=1,Z=0)P(Z=0) \right] P(Y=1)+(1+E[X])P(Y=0)\\
+    &=[2\times\dfrac{1}{6}+(2+E(X))\times\dfrac{5}{6}]\times\dfrac{1}{6}+(1+E(X))\times\dfrac{5}{6}\\
+\end{align*}
+\indent 解得\quad$E(X)=42$。
+
+
+\section{补充5}
+某只股票每天的股票以$p$的概率变成原来的$r>1$倍，以$q=1-p$的概率变成原来的$1/r$倍。
+假定股票的初始价格为$1$元每股，计算$d$天之后股票价格的期望和方差。\\
+解：\\
+\indent 设第$i$天的股票价格为$X_i$，
+\begin{align*}
+    E(X_i)&=pE(X_i|第i-1天涨价)+(1-p)E(X_i|第i-1天降价)\\
+    &=prE(X_{i-1})+\dfrac{1-p}{r}E(X_{i-1})\\
+    &=\left(pr+\dfrac{1-p}{r}\right)E(X_{i-1})
+\end{align*}
+\indent 因为$E(X_1)=1$，所以$E(X_d)=(pr+\dfrac{1-p}{r})^{d-1}$。
+\begin{align*}
+    E(X_i^2)&=pE(X_i^2|第i-1天涨价)+(1-p)E(X_i^2|第i-1天降价)\\
+    &=pE(X_{i-1}^2\times r^2)+E\left(X_{i-1}^2\times(\dfrac{1-p}{r})^2\right)\\
+    &=\left[p r^2+\dfrac{1-p}{r^2}\right]E(X_{i-1})
+\end{align*}
+\indent 因为$E(X_1^2)=1$，所以$E(X_d^2)=\left[p r^2+\dfrac{1-p}{r^2}\right]^{d-1}$。
+所以有
+\[
+    D(X_d)=E(X^2)-[E(X)]^2
+    =\left[p r^2+\dfrac{1-p}{r^2}\right]^{d-1}-\left(pr+\dfrac{1-p}{r}\right)^{2d-2}
+    \]
+
+\section{补充6}
+设我们抛了$n$次一枚均匀硬币从而获得了$n$个随机比特。考虑这些比特可构成$n(n-1)/2$个比特对。
+对每一个比特对进行异或操作，记结果为$Y_i，i=1，2，\cdots，n(n-1)/2$。定义$Y$为$Y_i=1$的个数。\\
+（1）求$Y_i$的分布律。\\
+（2）证明$Y_i，i=1，2，\cdots，n(n-1)/2$并不是相互独立的。\\
+（3）证明$E(Y_iY_j)=E(X_i)E(X_j)$。\\
+（4）计算$D(Y)$。\\
+（5）为$P(|Y-E(Y)|\ge n)$建立一个上界。\\
+解:\\
+（1）
+\[
+    P(Y_i=1)=P(比特对为(1,1))+P(比特对为(0,0))=\dfrac{1}{2}\times\dfrac{1}{2}+\dfrac{1}{2}\times\dfrac{1}{2}=\dfrac{1}{2}\]
+\[  P(Y_i=0)=P(比特对为(1,0))+P(比特对为(0,1))=\dfrac{1}{2}\times\dfrac{1}{2}+\dfrac{1}{2}\times\dfrac{1}{2}=\dfrac{1}{2}\\
+\]
+$Y_i$的分布律如下：\\
+\begin{center}
+\begin{tabular}{c|cc}
+\hline
+$Y_i$ & 0 & 1 \\
+\hline
+$P$ & $\frac{1}{2}$ &$\frac{1}{2}$\\
+\hline
+\end{tabular}
+\end{center}
+（2）
+\begin{proof}
+    取特殊值$Y_i=1，i=1，2，\cdots，\binom{n}{2}$，
+\[
+    \prod_{i=1}^{\binom{n}{2}} P(Y_i=1)=1 
+    \]
+但是$P\left((\prod_{i=1}^{\binom{n}{2}} Y_i)=1\right)$必定等于0，
+因为任取三个比特，必有两个相等，则存在$i，1\le i \le {\binom{n}{2}}$，使得$Y_i=0$。
+$所以Y_i，i=1，2，\cdots，n(n-1)/2$并不是相互独立的。
+\end{proof}
+\noindent（3）
+\begin{proof}
+\begin{align*}
+    E(Y_iY_j)&=0\times \sum_{1\le i < j\le n(n-1)/2} P(Y_iY_j=0)+1\times \sum_{1\le i < j\le n(n-1)/2}P(Y_iY_j=1)\\
+    &=\sum_{1\le i < j\le n(n-1)/2}P(Y_iY_j=1)\\
+    &=\sum_{1\le i < j\le n(n-1)/2}P(Y_i=1,Y_j=1)
+\end{align*}
+\indent 当$Y_i,Y_j$的两个比特对是由4个比特生成时，$Y_i,Y_j$是独立的，
+$P(Y_i=1,Y_j=1)=P(X_i=1)P(Y_i=1)。$\\
+\indent 当$Y_i,Y_j$的两个比特对是由3个比特生成时，记这三个比特为$a,b,c$。不失一般性，
+设$Y_i=a\oplus b,Y_j=a\oplus c$。在$(a,b,c)$的8种情况中，
+有2种情况使得$Y_i=1$且$Y_j=1$，$P(Y_i=1,Y_j=1)=\dfrac{1}{4}$；
+有4种情况使得$Y_i=1$，$P(Y_i=1)=\dfrac{1}{2}$；
+有4种情况使得$Y_j=1$，$P(Y_j=1)=\dfrac{1}{2}$；
+所以$P(Y_i=1,Y_j=1)=P(X_i=1)P(Y_i=1)。$\\
+\indent 所以
+\begin{align*}
+    E(Y_iY_j)&=\sum_{1\le i < j\le n(n-1)/2}P(Y_i=1,Y_j=1)\\
+    &=\sum_{1\le i < j\le n(n-1)/2}P(Y_i=1)P(Y_j=1)\\
+    &=\sum_{i=1}^n P(Y_i=1) \sum_{j=1}^n P(Y_j=1) \quad (i\ne j)\\
+    &=E(Y_i)E(Y_j)
+\end{align*}
+\end{proof}
+
+\noindent（4）
+\begin{align*}
+    D(Y)&=D\left(\sum_{i=1}^{n(n-1)/2} Y_i\right)\\
+    &=\sum_{i=1}^{n(n-1)/2}D(Y_i)+2\sum_{1\le i<j\le \frac{n(n-1)}{2}}cov(Y_i,Y_j)\\
+    &=\sum_{i=1}^{n(n-1)/2}D(Y_i)+2\sum_{1\le i<j\le \frac{n(n-1)}{2}}[E(Y_i,Y_j)-E(Y_i)E(Y_j)]\\
+    &=\sum_{i=1}^{n(n-1)/2}[E(Y_i^2)-(E(Y_i))^2]\\
+    &=\sum_{i=1}^{n(n-1)/2}[(1^2\times\dfrac{1}{2})-(\dfrac{1}{2})^2]\\
+    &=\dfrac{n(n-1)}{2}\times\dfrac{1}{4}\\
+    &=\dfrac{n(n-1)}{8}
+\end{align*}
+
+\noindent（5）
+使用切比雪夫不等式，
+\[
+    P\left(|Y-E(Y)|\ge n\right)\le\dfrac{D(Y)}{n^2}=\dfrac{\dfrac{n(n-1)}{8}}{n^2}=\dfrac{n-1}{8n}
+    \]
+\end{document}
