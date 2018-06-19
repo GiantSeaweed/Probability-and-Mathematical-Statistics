@@ -1,0 +1,103 @@
+%!TEX program = xelatex
+\documentclass[a4papers]{ctexart}
+%数学符号
+\usepackage{amssymb}
+\usepackage{amsmath}
+%表格
+\usepackage{graphicx,floatrow}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{makecell}
+%页边距
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+%首行缩进两字符 利用\indent \noindent进行控制
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\setromanfont{Songti SC}
+%\setromanfont{Heiti SC}
+
+\title{Probability and Mathmatical Statistics \\Homework 14}
+\author{冯诗伟161220039}
+\date{}
+\begin{document}
+\maketitle
+\section{8.2}
+解：
+\indent 设桶装油的质量为$X$千克，$X \sim N(\mu,\sigma^2)$，记原假设$H_0$和备择假设$H_1$分别为
+\[
+    H_0: \mu =10 \quad H_1 :\mu \ne 10
+    \]
+检验统计量为$\dfrac{\overline X -\mu}{S_n / \sqrt{n-1}}$，当$H_0$成立时，
+$T=\dfrac{\overline X -10}{S_n / \sqrt{n-1}}\sim t(n-1)$。则检验的拒绝域为
+\[
+    W = \left\{ |T|=|\dfrac{\overline X -10}{S_n / \sqrt{n-1}}|\ge t_{\alpha / 2}(n-1) \right\}
+    \]
+其中，$\overline X=10.06，S_n=\sqrt{S_n^2}=0.7375，n=10，t_{\alpha / 2}(n-1)=t_{0.005}(9)=3.2498,$
+检验统计量的观察值$t=0.244\notin W，$所以接受原假设，认为该公司的桶装油质量为10千克。
+\section{8.3}
+解：
+\indent 设这批矿砂的锂含量为$X\%$，$X \sim N(\mu,\sigma^2)$，记原假设$H_0$和备择假设$H_1$分别为
+\[
+    H_0: \mu =3.25 \quad H_1 :\mu \ne 3.25
+    \]
+检验统计量为$\dfrac{\overline X -\mu}{S_n / \sqrt{n-1}}$，当$H_0$成立时，
+$T=\dfrac{\overline X -3.25}{S_n / \sqrt{n-1}}\sim t(n-1)$。则检验的拒绝域为
+\[
+    W = \left\{ |T|=|\dfrac{\overline X -3.25}{S_n / \sqrt{n-1}}|\ge t_{\alpha / 2}(n-1) \right\}
+    \]
+其中，$\overline X=3.252，S_n=\sqrt{S_n^2}=0.01166，n=5，t_{\alpha / 2}(n-1)=t_{0.005}(4)=4.6041,$
+检验统计量的观察值$t=0.343\notin W，$所以接受原假设，认为该批矿砂的锂含量为3.25\%。
+
+\section{8.4}
+解：
+\indent 设这批钢索的断裂强度为$X$千克/平方厘米，$X \sim N(\mu,40^2)$，记原假设$H_0$和备择假设$H_1$分别为
+\[
+    H_0: \mu =\overline x - 20 \quad H_1 :\mu < \overline x - 20
+    \]
+检验统计量为$\dfrac{\overline X -\mu}{\sigma / \sqrt{n}}$，当$H_0$成立时，
+$U=\dfrac{\overline X -(\overline x - 20)}{\sigma / \sqrt{n}}\sim N(0,1)$。则检验的拒绝域为
+\[
+    W = \left\{ U=\dfrac{\overline X -(\overline x - 20)}{\sigma / \sqrt{n}} \le -u_{\alpha} \right\}
+    \]
+其中，$\overline X=\overline x，\sigma = 40，n=9，-u_{\alpha}=-u_{0.01}=-2.33,$
+检验统计量的观察值$u=1.5\notin W，$所以接受原假设，认为该批钢索的断裂强度有所提高。
+
+\section{8.6}
+解：
+\indent 设$A$种小麦的蛋白质含量为$X$，$X \sim N(\mu_1,\sigma^2)$，
+设$B$种小麦的蛋白质含量为$Y$，$Y \sim N(\mu_2,\sigma^2)$，
+记原假设$H_0$和备择假设$H_1$分别为
+\[
+    H_0: \mu_1 =\mu_2 \quad H_1 :\mu_1 \ne \mu_2 
+    \]
+检验统计量为$\sqrt{\dfrac{n_1n_2(n_1+n_2-2)}{n_1+n_2}}\dfrac{(\overline X-\overline Y)-(\mu_1-\mu_2)}{\sqrt{(n_1-1)S_{1}^2+(n_2-1)S_{2}^2}}$，\\
+当$H_0$成立时，
+$T=\sqrt{\dfrac{n_1n_2(n_1+n_2-2)}{n_1+n_2}}\dfrac{\overline X-\overline Y}{\sqrt{(n_1-1)S_{1}^2+(n_2-1)S_{2}^2}}\sim t(n_1+n_2-2)$。\\
+则检验的拒绝域为
+\[
+    W = \left\{ |T| \ge t_{\alpha /2}(n_1+n_2-2) \right\}
+    \]
+其中，$n_1 =10，\overline X=14.3，S_1^2=1.62，n_2=5，\overline Y = 11.7，S_2^2 = 0.14，t_{\alpha /2}(n_1+n_2-2)=t_{0.005}(13)=3.0123，$
+检验统计量的观察值$t=4.399\in W，$所以接受备择假设，认为良种小麦的蛋白质含量有差异。
+
+\section{8.10}
+解：
+\indent 设机床甲加工的零件直径为$X$，$X \sim N(\mu,\sigma_1^2)$，
+设机床乙加工的零件直径为$Y$，$Y \sim N(\mu,\sigma_2^2)$，
+记原假设$H_0$和备择假设$H_1$分别为
+\[
+    H_0: \sigma_1^2 = \sigma_2^2 \quad H_1 :\sigma_1^2 \ne \sigma_2^2
+    \]
+检验统计量为$\dfrac{S_1^2\sigma_2^2}{S_2^2\sigma_1^2}$，当$H_0$成立时，
+$F=\dfrac{S_1^2}{S_2^2}\sim(n_1-1，n_2-1)$。则检验的拒绝域为
+\[
+    W = \left\{ F \le F_{1-\alpha/2}(n_1-1,n_2-1) \right\} \cup
+        \left\{ F \ge F_{\alpha/2}(n_1-1,n_2-1) \right\}
+    \]
+其中，$n_1 =8，\overline X =19.925，S_1^2=0.2164，n_2=7，\overline Y = 20，S_2^2 = 0.6298，F_{1-\alpha /2}(n_1-1,n_2-1)=F_{0.975}(7,6)=\dfrac{1}{F_{0.025}(6,7)}=0.1953，F_{\alpha /2}(n_1-1,n_2-1)=F_{0.025}(7,6)=5.70$
+检验统计量的观察值$f=0.3436 \notin W，$所以接受原假设，认为甲乙两台机床加工的精度无显著差异。
+
+\end{document}
